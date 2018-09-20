@@ -251,6 +251,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &696183758 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1293603593108180, guid: 92d60a2e17d9a4bb8bd3801b14fc2926,
+    type: 2}
+  m_PrefabInternal: {fileID: 1110405986}
+--- !u!114 &696183759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 696183758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8e1d2acb1df348a38b73eaf9356d426, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &888846047 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4915952705314410, guid: 92d60a2e17d9a4bb8bd3801b14fc2926,
@@ -297,7 +313,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1293603593108180, guid: 92d60a2e17d9a4bb8bd3801b14fc2926, type: 2}
       propertyPath: m_Name
-      value: RankingButton
+      value: RankingTextmesh
       objectReference: {fileID: 0}
     - target: {fileID: 102362823683043728, guid: 92d60a2e17d9a4bb8bd3801b14fc2926,
         type: 2}
@@ -436,7 +452,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1293603593108180, guid: 92d60a2e17d9a4bb8bd3801b14fc2926, type: 2}
       propertyPath: m_Name
-      value: QuitButton
+      value: QuitTextmesh
       objectReference: {fileID: 0}
     - target: {fileID: 102362823683043728, guid: 92d60a2e17d9a4bb8bd3801b14fc2926,
         type: 2}
@@ -535,7 +551,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1293603593108180, guid: 92d60a2e17d9a4bb8bd3801b14fc2926, type: 2}
       propertyPath: m_Name
-      value: StartButton
+      value: StartTextmesh
       objectReference: {fileID: 0}
     - target: {fileID: 102362823683043728, guid: 92d60a2e17d9a4bb8bd3801b14fc2926,
         type: 2}
@@ -601,7 +617,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1293603593108180, guid: 92d60a2e17d9a4bb8bd3801b14fc2926, type: 2}
       propertyPath: m_Name
-      value: ContinueButton
+      value: ContinueTextmesh
       objectReference: {fileID: 0}
     - target: {fileID: 102362823683043728, guid: 92d60a2e17d9a4bb8bd3801b14fc2926,
         type: 2}
@@ -681,7 +697,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1293603593108180, guid: 92d60a2e17d9a4bb8bd3801b14fc2926, type: 2}
       propertyPath: m_Name
-      value: HelpButton
+      value: HelpTextmesh
       objectReference: {fileID: 0}
     - target: {fileID: 102362823683043728, guid: 92d60a2e17d9a4bb8bd3801b14fc2926,
         type: 2}
@@ -878,3 +894,19 @@ Transform:
   m_PrefabParentObject: {fileID: 4915952705314410, guid: 92d60a2e17d9a4bb8bd3801b14fc2926,
     type: 2}
   m_PrefabInternal: {fileID: 1110405986}
+--- !u!1 &2130332735 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1293603593108180, guid: 92d60a2e17d9a4bb8bd3801b14fc2926,
+    type: 2}
+  m_PrefabInternal: {fileID: 1337365576}
+--- !u!114 &2130332736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2130332735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51e6e445a12d64d199966963be02918e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
