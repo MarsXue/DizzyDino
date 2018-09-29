@@ -5,12 +5,16 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
 
     public float laneWidth = 3f;
+    public float force = 450f;
+    public float jumpThreshold = 2f;
     private float z = 0.0f;
+    private Rigidbody r;
+    
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         z = gameObject.transform.localPosition.z;
-
+        r = gameObject.GetComponent<Rigidbody>();
     }
 	
 	// Update is called once per frame
@@ -25,5 +29,10 @@ public class PlayerController : MonoBehaviour {
         }
         gameObject.transform.localPosition = pos;
 
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow)) {
+            if (gameObject.transform.position.y < jumpThreshold) {
+                r.AddForce(force * Vector3.up);
+            }
+        }
     }
 }

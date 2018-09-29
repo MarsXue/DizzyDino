@@ -229,6 +229,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   laneWidth: 3
+  force: 450
+  jumpThreshold: 2
 --- !u!54 &35176018
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -244,6 +246,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 122
   m_CollisionDetection: 0
+--- !u!64 &35176019
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 35176015}
+  m_Material: {fileID: 13400000, guid: dafc0dc3bdf404fdbbcec71d0e709ff4, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 1a05798fe58a34aa3a998e2eb43df4a0, type: 3}
 --- !u!1001 &36632472
 Prefab:
   m_ObjectHideFlags: 0
