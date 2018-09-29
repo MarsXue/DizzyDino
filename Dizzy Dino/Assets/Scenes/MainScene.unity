@@ -213,6 +213,22 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 405600, guid: 4c4ea267b7f410b418aa1a42c46bacd3, type: 2}
   m_PrefabInternal: {fileID: 17162787}
+--- !u!1 &35176015 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100002, guid: 1a05798fe58a34aa3a998e2eb43df4a0, type: 3}
+  m_PrefabInternal: {fileID: 1410161289}
+--- !u!114 &35176016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 35176015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d745f3992be6848c49a985cc1fe6beb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  laneWidth: 3
 --- !u!1001 &36632472
 Prefab:
   m_ObjectHideFlags: 0
