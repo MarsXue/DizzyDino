@@ -230,7 +230,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   laneWidth: 3
   force: 450
-  jumpThreshold: 2
+  jumpThreshold: 0.5
 --- !u!54 &35176018
 Rigidbody:
   m_ObjectHideFlags: 0

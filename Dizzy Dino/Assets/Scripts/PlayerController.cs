@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour {
 
     public float laneWidth = 3f;
     public float force = 450f;
-    public float jumpThreshold = 2f;
+    public float jumpThreshold = 0.5f;
     private float z = 0.0f;
     private Rigidbody r;
     
