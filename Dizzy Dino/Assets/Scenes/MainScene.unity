@@ -231,6 +231,9 @@ MonoBehaviour:
   laneWidth: 3
   force: 450
   jumpThreshold: 0.5
+  rotationLimit: 30
+  particleSystem: {fileID: 1407466534}
+  centerOfMass: {x: 0, y: -10, z: 0}
 --- !u!4 &35176017 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400002, guid: 1a05798fe58a34aa3a998e2eb43df4a0, type: 3}
@@ -248,8 +251,20 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 122
+  m_Constraints: 58
   m_CollisionDetection: 0
+--- !u!135 &35176019
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 35176015}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Radius: 81.48134
+  m_Center: {x: -7.0000052, y: 57.194782, z: 5.713463}
 --- !u!65 &35176020
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -261,7 +276,36 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 115, y: 30, z: 100}
-  m_Center: {x: -5, y: -15, z: 0}
+  m_Center: {x: -5, y: -10, z: 0}
+--- !u!146 &35176021
+WheelCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 35176015}
+  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.5
+  m_SuspensionSpring:
+    spring: 35000
+    damper: 4500
+    targetPosition: 0.5
+  m_SuspensionDistance: 0.3
+  m_ForceAppPointDistance: 0
+  m_Mass: 20
+  m_WheelDampingRate: 0.25
+  m_ForwardFriction:
+    m_ExtremumSlip: 0.4
+    m_ExtremumValue: 1
+    m_AsymptoteSlip: 0.8
+    m_AsymptoteValue: 0.5
+    m_Stiffness: 1
+  m_SidewaysFriction:
+    m_ExtremumSlip: 0.2
+    m_ExtremumValue: 1
+    m_AsymptoteSlip: 0.5
+    m_AsymptoteValue: 0.75
+    m_Stiffness: 1
+  m_Enabled: 1
 --- !u!1001 &36632472
 Prefab:
   m_ObjectHideFlags: 0
@@ -932,7 +976,7 @@ MeshCollider:
   m_GameObject: {fileID: 146969706}
   m_Material: {fileID: 13400000, guid: dafc0dc3bdf404fdbbcec71d0e709ff4, type: 2}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Convex: 1
   m_CookingOptions: 14
@@ -3717,7 +3761,7 @@ ParticleSystem:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  moveWithTransform: 0
+  moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
   randomSeed: 0

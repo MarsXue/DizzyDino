@@ -7,6 +7,10 @@ public class PlayerController : MonoBehaviour {
     public float laneWidth = 3f;
     public float force = 450f;
     public float jumpThreshold = 0.5f;
+    public float rotationLimit = 45f;
+
+    public ParticleSystem particleSystem;
+
     private float z = 0.0f;
     private Rigidbody r;
     
@@ -15,11 +19,12 @@ public class PlayerController : MonoBehaviour {
     void Start () {
         z = gameObject.transform.localPosition.z;
         r = gameObject.GetComponent<Rigidbody>();
+
     }
 	
 	// Update is called once per frame
 	void Update () {
-
+      
         Vector3 pos = gameObject.transform.localPosition;
         if (Input.GetKeyDown(KeyCode.LeftArrow)) {
             pos.z = Mathf.Max(z - laneWidth, pos.z - laneWidth);
@@ -33,6 +38,13 @@ public class PlayerController : MonoBehaviour {
             if (gameObject.transform.position.y < jumpThreshold) {
                 r.AddForce(force * Vector3.up);
             }
+        }
+
+        if (gameObject.transform.position.y > jumpThreshold) {
+            particleSystem.Stop();
+            r.angularVelocity = Vector3.zero;
+        } else {
+            particleSystem.Play();
         }
     }
 }
