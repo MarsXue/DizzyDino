@@ -5,14 +5,23 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuScript : MonoBehaviour {
 
+	private const string menuString = "MainMenu";
+
 	public void Update() {
 
-		if (Input.GetKey(KeyCode.Space)) {
+		if (gameObject.activeInHierarchy) {
 
-			Debug.Log("Did start the game!");
+			if (Input.GetKeyDown(KeyCode.Space)) {
 
-			// game scene
-			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+				Debug.Log("Main is active");
+
+				Debug.Log("Did start the game!");
+
+				// load the game scene
+				SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+			
+			}
+
 		}
 		
 	}
