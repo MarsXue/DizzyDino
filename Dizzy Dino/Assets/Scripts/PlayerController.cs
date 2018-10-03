@@ -28,9 +28,11 @@ public class PlayerController : MonoBehaviour {
         Vector3 pos = gameObject.transform.localPosition;
         if (Input.GetKeyDown(KeyCode.LeftArrow)) {
             pos.z = Mathf.Max(z - laneWidth, pos.z - laneWidth);
+            r.angularVelocity = Vector3.zero;
         }
         if (Input.GetKeyDown(KeyCode.RightArrow)) {
             pos.z = Mathf.Min(z + laneWidth, pos.z + laneWidth);
+            r.angularVelocity = Vector3.zero;
         }
         gameObject.transform.localPosition = pos;
 
