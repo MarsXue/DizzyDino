@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
-    public float laneWidth = 3f;
+    private float laneWidth;
     public float force = 450f;
     public float jumpThreshold = 0.5f;
     public float rotationLimit = 45f;
 
     public ParticleSystem particleSystem;
+
+    private LaneProperties laneProperties;
 
     private float z = 0.0f;
     private Rigidbody r;
@@ -17,9 +19,13 @@ public class PlayerController : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        laneProperties =
+            GameObject.FindWithTag("GameController")
+                      .GetComponent<LaneProperties>();
         z = gameObject.transform.localPosition.z;
         r = gameObject.GetComponent<Rigidbody>();
 
+        laneWidth = laneProperties.laneWidth;
     }
 	
 	// Update is called once per frame
