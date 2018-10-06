@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class TerrainScrollingScript : MonoBehaviour {
 
-    private LaneProperties speedController;
+    private LaneProperties laneProperties;
     private float startingX = 0.0f;
     private const float size = 10.0f;
 
 	// Use this for initialization
 	void Start () {
-        speedController =
+        laneProperties =
             GameObject.FindWithTag("GameController")
                       .GetComponent<LaneProperties>();
         startingX = gameObject.transform.position.x;
@@ -18,7 +18,7 @@ public class TerrainScrollingScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        float speed = speedController.speed;
+        float speed = laneProperties.speed;
         float time = Time.fixedDeltaTime;
         Vector3 v = gameObject.transform.position;
         v.x = startingX + (v.x + time * speed) % size;
