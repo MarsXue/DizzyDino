@@ -305,7 +305,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4774611942616780}
   - component: {fileID: 135594985465727248}
-  - component: {fileID: 114194499312833748}
   - component: {fileID: 54702135554596868}
   m_Layer: 0
   m_Name: scareCollider
@@ -549,7 +548,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4793435417463054}
   - component: {fileID: 95967747249976632}
-  - component: {fileID: 114228934914165326}
   - component: {fileID: 65286085090247326}
   - component: {fileID: 54994654571071674}
   - component: {fileID: 82587731053140856}
@@ -2040,28 +2038,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114194499312833748
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1255319605885326}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114228934914165326
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1532183757742218}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!135 &135594985465727248
 SphereCollider:
   m_ObjectHideFlags: 1
