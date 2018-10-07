@@ -13,8 +13,6 @@ public class MainMenuScript : MonoBehaviour {
 
 			if (Input.GetKeyDown(KeyCode.Space)) {
 
-				Debug.Log("Main is active");
-
 				Debug.Log("Did start the game!");
 
 				// load the game scene

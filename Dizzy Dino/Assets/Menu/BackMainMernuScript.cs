@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class RankingMenuScript : MonoBehaviour {
+public class BackMainMernuScript : MonoBehaviour {
 
 	public GameObject mainMenu;
 	
@@ -11,9 +11,8 @@ public class RankingMenuScript : MonoBehaviour {
 	void Update() {
 
 		if (gameObject.activeInHierarchy) {
+			
 			if (Input.GetKeyDown(KeyCode.Space)) {
-
-			Debug.Log("Ranking is active");
 
 				gameObject.SetActive(false);
 
