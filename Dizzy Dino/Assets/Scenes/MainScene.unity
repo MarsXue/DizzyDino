@@ -785,8 +785,7 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 114265282670276946, guid: b2044629be37d45b9a40f845554bb20f, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b2044629be37d45b9a40f845554bb20f, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &106608937
@@ -1434,18 +1433,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4379756297944146, guid: 8c1e84e002ed64d36b74f33d96bdac5f, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4379756297944146, guid: 8c1e84e002ed64d36b74f33d96bdac5f, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4379756297944146, guid: 8c1e84e002ed64d36b74f33d96bdac5f, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 4
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8c1e84e002ed64d36b74f33d96bdac5f, type: 2}
   m_IsPrefabParent: 0
@@ -1733,6 +1720,46 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 28fe3771b0c694ae29a7334db2eb1e36, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &578289227 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1812027875594574, guid: 731ecd5379b7e4ab484ab0be90098b06,
+    type: 2}
+  m_PrefabInternal: {fileID: 365154108}
+--- !u!23 &578289228
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 578289227}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
+  m_Materials:
+  - {fileID: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
 --- !u!1001 &659354210
 Prefab:
   m_ObjectHideFlags: 0
@@ -3162,6 +3189,22 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 405600, guid: 4c4ea267b7f410b418aa1a42c46bacd3, type: 2}
   m_PrefabInternal: {fileID: 1066434697}
+--- !u!1 &1083989139 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1973325946887524, guid: de33a764280c146d5a8c9f70ec3e7567,
+    type: 2}
+  m_PrefabInternal: {fileID: 72661562}
+--- !u!114 &1083989140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1083989139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3eadd6a895a7041a6acc28b39df27c5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1090630368
 Prefab:
   m_ObjectHideFlags: 0
@@ -8918,6 +8961,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  effectSpeed: 0
   laneWidth: 1.5
 --- !u!4 &1462946358
 Transform:

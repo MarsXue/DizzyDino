@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4848562898377100}
   - component: {fileID: 33222264388798806}
   - component: {fileID: 23410272938709590}
-  - component: {fileID: 114265282670276946}
+  - component: {fileID: 114814483887892006}
   m_Layer: 0
   m_Name: SpeedUp
   m_TagString: Untagged
@@ -36,7 +36,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1259137083725750}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 19.94, y: 1.5109502, z: -0.12}
+  m_LocalPosition: {x: 17.18, y: 1.5109502, z: -0.39000002}
   m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_Children: []
   m_Father: {fileID: 0}
@@ -84,7 +84,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1259137083725750}
   m_Mesh: {fileID: 4300000, guid: 911b2aca4190de843ba6fc029bf3734d, type: 3}
---- !u!114 &114265282670276946
+--- !u!114 &114814483887892006
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -92,6 +92,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 1259137083725750}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 3eadd6a895a7041a6acc28b39df27c5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class LaneProperties : MonoBehaviour {
 
-    public float speed; 
+    public float speed;
+    public float effectSpeed;
 	public float laneWidth;
 
 	// Use this for initialization
@@ -16,4 +17,8 @@ public class LaneProperties : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    public float GetSpeed() {
+        return speed + effectSpeed;
+    }
 }
