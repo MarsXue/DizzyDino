@@ -9070,6 +9070,7 @@ GameObject:
   - component: {fileID: 1462946357}
   - component: {fileID: 1462946359}
   - component: {fileID: 1462946360}
+  - component: {fileID: 1462946361}
   m_Layer: 0
   m_Name: GameController
   m_TagString: GameController
@@ -9088,6 +9089,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcffc8600179647a181e4d431e62f77c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxSpeed: 25
   speed: 10
   effectSpeed: 0
   laneWidth: 1.5
@@ -9131,6 +9133,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultLives: 2
   lifeIndicator: {fileID: 1163997507}
+--- !u!114 &1462946361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1462946356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be62842c1ee674152a10400552858a7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highScore: {fileID: 1168011356}
+  scoreText: {fileID: 1549606046}
 --- !u!1001 &1492120972
 Prefab:
   m_ObjectHideFlags: 0
@@ -9291,7 +9306,6 @@ GameObject:
   - component: {fileID: 1549606045}
   - component: {fileID: 1549606047}
   - component: {fileID: 1549606046}
-  - component: {fileID: 1549606048}
   m_Layer: 5
   m_Name: Score
   m_TagString: Untagged
@@ -9356,18 +9370,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1549606044}
---- !u!114 &1549606048
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1549606044}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be62842c1ee674152a10400552858a7a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  highScore: {fileID: 1168011356}
 --- !u!1001 &1574712168
 Prefab:
   m_ObjectHideFlags: 0
