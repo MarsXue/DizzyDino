@@ -13,8 +13,6 @@ public class ObjectMovementScript : MonoBehaviour {
             GameObject.FindWithTag("GameController")
                       .GetComponent<LaneProperties>();
         renderers = gameObject.GetComponentsInChildren<Renderer>();
-
-        Debug.Log(gameObject.name + " -- " + renderers.Length);
     }
 	
 	// Update is called once per frame
@@ -26,17 +24,6 @@ public class ObjectMovementScript : MonoBehaviour {
         Vector3 v = gameObject.transform.position;
         v.x += time * speed;
         gameObject.transform.position = v;
-
-
-        //if (renderers.Length > 0) {
-        //    bool isVisible = false;
-        //    foreach (Renderer r in renderers) {
-        //        isVisible = isVisible || r.isVisible;
-        //    }
-        //    if (!isVisible) {
-        //        Destroy(gameObject);
-        //    }
-        //}
     }
 
     public void OnBecameInvisible() {
