@@ -618,7 +618,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4220993934657998, guid: de33a764280c146d5a8c9f70ec3e7567, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.82
+      value: 2.24
       objectReference: {fileID: 0}
     - target: {fileID: 4220993934657998, guid: de33a764280c146d5a8c9f70ec3e7567, type: 2}
       propertyPath: m_LocalPosition.z
@@ -3134,22 +3134,6 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 405600, guid: 4c4ea267b7f410b418aa1a42c46bacd3, type: 2}
   m_PrefabInternal: {fileID: 1066434697}
---- !u!1 &1083989139 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1973325946887524, guid: de33a764280c146d5a8c9f70ec3e7567,
-    type: 2}
-  m_PrefabInternal: {fileID: 72661562}
---- !u!114 &1083989140
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1083989139}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3eadd6a895a7041a6acc28b39df27c5a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1090630368
 Prefab:
   m_ObjectHideFlags: 0
@@ -9106,7 +9090,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcffc8600179647a181e4d431e62f77c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 2.5
   effectSpeed: 0
   laneWidth: 1.5
 --- !u!4 &1462946358
