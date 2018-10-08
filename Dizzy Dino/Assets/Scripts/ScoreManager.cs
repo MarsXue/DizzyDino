@@ -50,7 +50,7 @@ public class ScoreManager : MonoBehaviour {
 
     }
 
-    	IEnumerator Blink() {
+    IEnumerator Blink() {
 
 		while (true) {
 
