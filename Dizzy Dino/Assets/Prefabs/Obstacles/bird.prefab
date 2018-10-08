@@ -553,6 +553,7 @@ GameObject:
   - component: {fileID: 135851761478368432}
   - component: {fileID: 114683545912508430}
   - component: {fileID: 23388821622379466}
+  - component: {fileID: 114465798549237802}
   m_Layer: 0
   m_Name: bird
   m_TagString: lb_bird
@@ -1979,6 +1980,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114465798549237802
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1532183757742218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b784afc2497b8463c941e5d6e2fc085a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FixedY: 1.32
 --- !u!114 &114683545912508430
 MonoBehaviour:
   m_ObjectHideFlags: 1
