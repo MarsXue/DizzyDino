@@ -245,4 +245,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b784afc2497b8463c941e5d6e2fc085a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FixedY: -0.25
+  PositionY: -0.25
+  RotationY: -90

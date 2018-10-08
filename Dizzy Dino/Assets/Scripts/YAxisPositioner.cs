@@ -4,16 +4,24 @@ using UnityEngine;
 
 public class YAxisPositioner : MonoBehaviour {
 
-	public float FixedY;
+	public float PositionY;
+
+	public float RotationY;
 
 	// Use this for initialization
 	void Start () {
 
-		Vector3 p = gameObject.transform.position;
+		Vector3 position = gameObject.transform.position;
 
-		p.y = FixedY;
+		position.y = PositionY;
 
-		gameObject.transform.position = p;
+		gameObject.transform.position = position;
+
+		Vector3 eulerAngles = gameObject.transform.eulerAngles;
+
+		eulerAngles.y = RotationY;
+
+		gameObject.transform.eulerAngles = eulerAngles;
 		
 	}
 	
