@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour {
 
+	public float laneWidth;
+
 	public GameObject[] objects;
-	public Vector3 spawnValues;
 	public float spawnWait;
 	public float spawnMostWait;
 	public float spawnLeastWait;
@@ -36,9 +37,9 @@ public class Spawner : MonoBehaviour {
 
 			randomObject = Random.Range(0, 7);
 
-			Vector3 spawnPosition = new Vector3(Random.Range(-spawnValues.x, spawnValues.x), 
+			Vector3 spawnPosition = new Vector3(Random.Range(-1, 2) * laneWidth, 
 												1,
-												Random.Range(-spawnValues.z, spawnValues.z));
+												Random.Range(-1, 2) * laneWidth);
 
 			Instantiate(objects[randomObject], 
 						spawnPosition + transform.TransformPoint(0,0,0), 

@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
       
-        Vector3 pos = gameObject.transform.localPosition;
+        Vector3 pos = gameObject.transform.position;
         if (Input.GetKeyDown(KeyCode.LeftArrow)) {
             pos.z = Mathf.Max(z - laneWidth, pos.z - laneWidth);
             r.angularVelocity = Vector3.zero;
@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour {
             pos.z = Mathf.Min(z + laneWidth, pos.z + laneWidth);
             r.angularVelocity = Vector3.zero;
         }
-        gameObject.transform.localPosition = pos;
+        gameObject.transform.position = pos;
 
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow)) {
             if (gameObject.transform.position.y < jumpThreshold) {

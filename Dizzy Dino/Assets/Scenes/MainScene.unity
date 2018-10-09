@@ -1059,7 +1059,7 @@ MeshCollider:
   m_GameObject: {fileID: 146969706}
   m_Material: {fileID: 13400000, guid: dafc0dc3bdf404fdbbcec71d0e709ff4, type: 2}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Convex: 1
   m_CookingOptions: 14
@@ -1898,6 +1898,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a220a56e436274d319f04a57ef5cefaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  laneWidth: 1.5
   objects:
   - {fileID: 1761520013207292, guid: 3105aa15932184aab82627d135d2a349, type: 2}
   - {fileID: 1812027875594574, guid: 731ecd5379b7e4ab484ab0be90098b06, type: 2}
@@ -1906,10 +1907,9 @@ MonoBehaviour:
   - {fileID: 1104017311327438, guid: 8c374cc667f504173b46bf939ab54b5c, type: 2}
   - {fileID: 1841753191762142, guid: 81c413c9ccb724f2e9e803bd8a443e8e, type: 2}
   - {fileID: 1532183757742218, guid: 578e41c0b2ee64a899b16fde74e70a89, type: 2}
-  spawnValues: {x: 3, y: 0, z: 1}
   spawnWait: 0
-  spawnMostWait: 2
-  spawnLeastWait: 0.5
+  spawnMostWait: 3
+  spawnLeastWait: 1
   startWait: 1
   stop: 0
 --- !u!4 &679209464
@@ -10375,8 +10375,7 @@ Prefab:
       propertyPath: m_Icon
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 114957366785063472, guid: 578e41c0b2ee64a899b16fde74e70a89,
-        type: 2}
+    - target: {fileID: 0}
       propertyPath: FixedY
       value: 1.32
       objectReference: {fileID: 0}
