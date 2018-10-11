@@ -1338,13 +1338,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 282840810}
-  m_LocalRotation: {x: -0.03399694, y: -0.7094896, z: -0.033690266, w: 0.70308876}
-  m_LocalPosition: {x: 33.13, y: 0.62, z: -0.02}
+  m_LocalRotation: {x: 0.15304591, y: -0.6903456, z: 0.15304591, w: 0.6903456}
+  m_LocalPosition: {x: 35, y: 4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -5.4870005, y: -90.522, z: 0.05}
+  m_LocalEulerAnglesHint: {x: 25, y: -90, z: 0}
 --- !u!1001 &286536021
 Prefab:
   m_ObjectHideFlags: 0
@@ -1898,7 +1898,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a220a56e436274d319f04a57ef5cefaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  laneWidth: 1.5
   objects:
   - {fileID: 1761520013207292, guid: 3105aa15932184aab82627d135d2a349, type: 2}
   - {fileID: 1812027875594574, guid: 731ecd5379b7e4ab484ab0be90098b06, type: 2}
@@ -8898,7 +8897,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400002, guid: 1a05798fe58a34aa3a998e2eb43df4a0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 29.96
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 1a05798fe58a34aa3a998e2eb43df4a0, type: 3}
       propertyPath: m_LocalPosition.y
@@ -9146,7 +9145,7 @@ MonoBehaviour:
   maxSpeed: 25
   speed: 10
   effectSpeed: 0
-  laneWidth: 1.5
+  laneWidth: 4
 --- !u!4 &1462946358
 Transform:
   m_ObjectHideFlags: 0
