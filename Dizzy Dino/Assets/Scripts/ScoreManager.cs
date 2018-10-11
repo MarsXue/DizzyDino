@@ -10,6 +10,7 @@ public class ScoreManager : MonoBehaviour {
     public Text scoreText;
 
     private bool isBlinking = false;
+    public bool stop = false;
 
     private float time = 0.0f;
 
@@ -22,6 +23,12 @@ public class ScoreManager : MonoBehaviour {
 	
     // Update is called once per frame
     void Update () {
+        
+        // Stop counting the score
+        if (stop) {
+            return;
+        }
+
         score += Time.deltaTime;
         int s = (int) (score * 10);
 
@@ -52,7 +59,7 @@ public class ScoreManager : MonoBehaviour {
 
     IEnumerator Blink() {
 
-		while (true) {
+		while (!stop) {
 
 			switch(scoreText.color.a.ToString()) {
 				case "0":

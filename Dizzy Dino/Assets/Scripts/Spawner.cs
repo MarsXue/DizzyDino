@@ -9,7 +9,7 @@ public class Spawner : MonoBehaviour {
 	public float spawnMostWait;
 	public float spawnLeastWait;
 	public int startWait;
-	public bool stop;
+	public bool stop = false;
 
 	private LaneProperties laneProperties;
 	private int randomObject;
@@ -17,9 +17,8 @@ public class Spawner : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		laneProperties =
-            GameObject.FindWithTag("GameController")
-                      .GetComponent<LaneProperties>();
+		laneProperties = GameObject.FindWithTag("GameController")
+                      	.GetComponent<LaneProperties>();
 
 		StartCoroutine(waitSpawner());
 		

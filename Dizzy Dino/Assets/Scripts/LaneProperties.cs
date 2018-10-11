@@ -10,6 +10,7 @@ public class LaneProperties : MonoBehaviour {
     public float speed;
     public float effectSpeed;
 	public float laneWidth;
+	public bool accerlerate = true;
 
 	// Use this for initialization
 	void Start () {
@@ -19,11 +20,14 @@ public class LaneProperties : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
-		speed += ACCELERATION * Time.deltaTime;
+		if (accerlerate) {
+			speed += ACCELERATION * Time.deltaTime;
+		}
 
 	}
 
     public float GetSpeed() {
         return speed + effectSpeed;
     }
+
 }

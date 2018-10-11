@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour {
     public float jumpThreshold = 0.5f;
     public float rotationLimit = 45f;
 
+    public bool stop = false;
+
     public ParticleSystem particleSystem;
 
     private LaneProperties laneProperties;
@@ -18,9 +20,8 @@ public class PlayerController : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        laneProperties =
-            GameObject.FindWithTag("GameController")
-                      .GetComponent<LaneProperties>();
+        laneProperties = GameObject.FindWithTag("GameController")
+                        .GetComponent<LaneProperties>();
         z = gameObject.transform.localPosition.z;
         r = gameObject.GetComponent<Rigidbody>();
 
@@ -30,17 +31,17 @@ public class PlayerController : MonoBehaviour {
 	void Update () {
       
         Vector3 pos = gameObject.transform.position;
-        if (Input.GetKeyDown(KeyCode.LeftArrow)) {
+        if (Input.GetKeyDown(KeyCode.LeftArrow) && !stop) {
             pos.z = Mathf.Max(z -laneProperties.laneWidth, pos.z -laneProperties.laneWidth);
             r.angularVelocity = Vector3.zero;
         }
-        if (Input.GetKeyDown(KeyCode.RightArrow)) {
+        if (Input.GetKeyDown(KeyCode.RightArrow) && !stop) {
             pos.z = Mathf.Min(z +laneProperties.laneWidth, pos.z +laneProperties.laneWidth);
             r.angularVelocity = Vector3.zero;
         }
         gameObject.transform.position = pos;
 
-        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow)) {
+        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow)) && !stop) {
             if (gameObject.transform.position.y < jumpThreshold) {
                 r.AddForce(force * Vector3.up);
             }

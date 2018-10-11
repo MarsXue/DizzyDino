@@ -548,9 +548,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4793435417463054}
   - component: {fileID: 95967747249976632}
-  - component: {fileID: 65286085090247326}
   - component: {fileID: 54994654571071674}
-  - component: {fileID: 135851761478368432}
   - component: {fileID: 114683545912508430}
   - component: {fileID: 23388821622379466}
   - component: {fileID: 114465798549237802}
@@ -1741,7 +1739,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1532183757742218}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 20.35, y: 1.32, z: 1.36}
+  m_LocalPosition: {x: 20.35, y: -0.059, z: 1.36}
   m_LocalScale: {x: 12, y: 12, z: 12}
   m_Children:
   - {fileID: 4586342555497372}
@@ -1961,20 +1959,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.05, y: 0.08, z: 0.05}
-  m_Center: {x: 0, y: 0.04, z: 0}
---- !u!65 &65286085090247326
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1532183757742218}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.02, y: 0.08, z: 0.04}
-  m_Center: {x: 0, y: 0.04, z: 0}
+  m_Size: {x: 0.05, y: 0.05, z: 0.05}
+  m_Center: {x: 0, y: 0.05, z: 0}
 --- !u!95 &95967747249976632
 Animator:
   serializedVersion: 3
@@ -2029,18 +2015,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!135 &135851761478368432
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1532183757742218}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Radius: 0.08
-  m_Center: {x: 0, y: 0.04, z: 0}
 --- !u!137 &137437810176487392
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
