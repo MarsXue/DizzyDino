@@ -13,15 +13,20 @@ public class LifeManager : MonoBehaviour {
 
     public Text endText;
     public Image endImage;
+    public Button endButton;
 
     public GameObject dinosaur;
 
     private Spawner spawner;
     private ScoreManager scoreManager;
     private LaneProperties laneProperties;
+    private PlayerCollision playerCollision;
+
+    private bool isVisible = true;
 
     // Use this for initialization
     void Start () {
+
         lives = defaultLives;
         UpdateIndicator();
 
@@ -33,6 +38,9 @@ public class LifeManager : MonoBehaviour {
         
         laneProperties = GameObject.FindWithTag("GameController")
                         .GetComponent<LaneProperties>();
+
+        playerCollision = dinosaur.GetComponent<PlayerCollision>();
+
 
 	}
 	
@@ -56,6 +64,43 @@ public class LifeManager : MonoBehaviour {
             GameOver();
         }
         UpdateIndicator();
+
+        StartCoroutine(DoBlinks(3f, 0.2f));
+    }
+
+    IEnumerator DoBlinks(float duration, float blinkTime) {
+
+		playerCollision.isInvincible = true;
+
+        while (duration > 0f) {
+            
+            duration -= blinkTime;
+      
+            //toggle renderer
+            isVisible = !isVisible;
+            setVisibility(dinosaur, isVisible);
+      
+            //wait for a bit
+            yield return new WaitForSeconds(blinkTime);
+        }
+  
+        //make sure renderer is enabled when we exit
+        isVisible = true;
+        setVisibility(dinosaur, isVisible);
+
+        playerCollision.isInvincible = false;
+
+    }
+
+    void setVisibility(GameObject g, bool v) {
+        
+        MeshRenderer mr = g.GetComponent<MeshRenderer>();
+
+        if (mr != null) mr.enabled = v;
+
+        foreach (Transform child in g.transform) {
+            setVisibility(child.gameObject, v);
+        }
     }
 
     void GameOver() {
@@ -64,6 +109,8 @@ public class LifeManager : MonoBehaviour {
         
         endText.enabled = true;
         endImage.enabled = true;
+        endButton.GetComponent<Image>().enabled = true;
+        endButton.GetComponent<Button>().enabled = true;
 
         // Stop generating the assets
         spawner.stop = true;
@@ -84,7 +131,7 @@ public class LifeManager : MonoBehaviour {
     }
 
     // Restart the game
-    void RestartGame() {
+    public void RestartGame() {
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }

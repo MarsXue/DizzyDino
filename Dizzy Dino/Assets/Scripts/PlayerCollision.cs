@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerCollision : MonoBehaviour {
 
+	public bool isInvincible = false;
+
 	private LifeManager lifeManager;
 
 	// Use this for initialization
@@ -20,15 +22,16 @@ public class PlayerCollision : MonoBehaviour {
 	}
 
 	void OnTriggerEnter (Collider collider) {
-		// if (collider.name.IndexOf("Ground") == -1) {
-		// 	Debug.Log(collider.name);
-		// }
+
+		if (isInvincible) {
+			return;
+		}
 
 		// Obstacle collision
 		if (collider.tag == "Obstacle") {
 			Debug.Log("Obstacle: " + collider.name);
-
-			lifeManager.loseLive();			
+			lifeManager.loseLive();
+						
 		}
 
 		// Item collision
