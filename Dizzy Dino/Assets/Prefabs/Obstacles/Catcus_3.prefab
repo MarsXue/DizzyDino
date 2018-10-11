@@ -23,9 +23,10 @@ GameObject:
   - component: {fileID: 23426987348376136}
   - component: {fileID: 114986938488768064}
   - component: {fileID: 114016645637161704}
+  - component: {fileID: 65843030857982160}
   m_Layer: 0
   m_Name: Catcus_3
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -85,6 +86,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1093222886809298}
   m_Mesh: {fileID: 4300000, guid: 5886bf9675a27c2488f5e7defe740628, type: 3}
+--- !u!65 &65843030857982160
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1093222886809298}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.4734354, y: 2.1830645, z: 1.185602}
+  m_Center: {x: 0.028080374, y: 1.0924621, z: -0.12516084}
 --- !u!114 &114016645637161704
 MonoBehaviour:
   m_ObjectHideFlags: 1
