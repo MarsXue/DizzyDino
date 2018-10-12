@@ -11,9 +11,7 @@ public class LifeManager : MonoBehaviour {
     public int lives { get; private set; }
     private const string LIFE_PREFIX = "♥×";
 
-    public Text endText;
-    public Image endImage;
-    public Button endButton;
+    public GameObject endScreen;
 
     public GameObject dinosaur;
 
@@ -104,13 +102,9 @@ public class LifeManager : MonoBehaviour {
     }
 
     void GameOver() {
-        // TODO: Game over.
         Debug.Log("Game Over");
-        
-        endText.enabled = true;
-        endImage.enabled = true;
-        endButton.GetComponent<Image>().enabled = true;
-        endButton.GetComponent<Button>().enabled = true;
+
+        endScreen.SetActive(true);
 
         // Stop generating the assets
         spawner.stop = true;
@@ -134,6 +128,10 @@ public class LifeManager : MonoBehaviour {
     public void RestartGame() {
 
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void ReturnToMenu() {
+        SceneManager.LoadScene("MainMenu");
     }
 
 }
