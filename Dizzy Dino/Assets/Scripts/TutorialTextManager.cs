@@ -18,7 +18,7 @@ public class TutorialTextManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        ShowText("Lorem ipsum dolor sit amet");
+        ShowText("Press ← and → to move.");
 	}
 	
 	// Update is called once per frame
