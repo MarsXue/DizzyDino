@@ -21,7 +21,7 @@ public class LaneProperties : MonoBehaviour {
 	void Update () {
 		
 		if (accerlerate) {
-			speed += ACCELERATION * Time.deltaTime;
+            speed += ACCELERATION * Time.smoothDeltaTime;
 		}
 
 	}

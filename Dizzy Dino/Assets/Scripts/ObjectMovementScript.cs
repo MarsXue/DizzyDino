@@ -20,7 +20,7 @@ public class ObjectMovementScript : MonoBehaviour {
 
         // Move the object
         float speed = laneProperties.GetSpeed();
-        float time = Time.fixedDeltaTime;
+        float time = Time.smoothDeltaTime;
         Vector3 v = gameObject.transform.position;
         v.x += time * speed;
         gameObject.transform.position = v;

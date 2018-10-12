@@ -19,7 +19,7 @@ public class TerrainScrollingScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         float speed = laneProperties.GetSpeed();
-        float time = Time.fixedDeltaTime;
+        float time = Time.smoothDeltaTime;
         Vector3 v = gameObject.transform.position;
         v.x = startingX + (v.x + time * speed) % size;
         gameObject.transform.position = v;
