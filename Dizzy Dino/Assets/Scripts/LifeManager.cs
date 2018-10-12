@@ -70,7 +70,7 @@ public class LifeManager : MonoBehaviour {
 
     IEnumerator DoBlinks(float duration, float blinkTime) {
 
-		playerCollision.isInvincible = true;
+		playerCollision.isProtected = true;
 
         while (duration > 0f) {
             
@@ -88,7 +88,7 @@ public class LifeManager : MonoBehaviour {
         isVisible = true;
         setVisibility(dinosaur, isVisible);
 
-        playerCollision.isInvincible = false;
+        playerCollision.isProtected = false;
 
     }
 

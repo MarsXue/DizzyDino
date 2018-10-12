@@ -317,7 +317,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f448a56ffcc0349a7a53331c89b161f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isProtected: 0
   isInvincible: 0
+  protectedTime: 10
+  invincibleShader: {fileID: 4800000, guid: b3d60f9136f91422c8f5efab5e449b32, type: 3}
+  dinosaur: {fileID: 146969706}
 --- !u!1001 &36632472
 Prefab:
   m_ObjectHideFlags: 0
@@ -1811,6 +1815,7 @@ MonoBehaviour:
   - {fileID: 1104017311327438, guid: 8c374cc667f504173b46bf939ab54b5c, type: 2}
   - {fileID: 1841753191762142, guid: 81c413c9ccb724f2e9e803bd8a443e8e, type: 2}
   - {fileID: 1532183757742218, guid: 578e41c0b2ee64a899b16fde74e70a89, type: 2}
+  - {fileID: 1973325946887524, guid: de33a764280c146d5a8c9f70ec3e7567, type: 2}
   spawnWait: 0
   spawnMostWait: 3
   spawnLeastWait: 1
