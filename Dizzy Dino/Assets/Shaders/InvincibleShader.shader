@@ -129,9 +129,9 @@
                 half spread = 40;
                 half speed = 25;
                 half timeOffset = 0.0;
-                fixed saturation = 0.8;
-                fixed luminosity = 0.5;
-                fixed intensity = 0.2;
+                fixed saturation = 0.9;
+                fixed luminosity = 0.3;
+                fixed intensity = 0.8;
             
                 fixed3 lPos = i.localPosition / spread;
                 half time = _Time.y * speed / spread;
