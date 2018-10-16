@@ -13,14 +13,19 @@ public class Spawner : MonoBehaviour {
 
 	private LaneProperties laneProperties;
 	private int randomObject;
+	private int minRange;
+	private int maxRange;
 
 	// Use this for initialization
 	void Start () {
 
+		minRange = 0;
+		maxRange = 6;
+
 		laneProperties = GameObject.FindWithTag("GameController")
                       	.GetComponent<LaneProperties>();
 
-		StartCoroutine(waitSpawner());
+		StartCoroutine(obstacleSpawner());
 		
 	}
 	
@@ -31,21 +36,20 @@ public class Spawner : MonoBehaviour {
 		
 	}
 
-	IEnumerator waitSpawner () {
+	IEnumerator obstacleSpawner () {
 
 		yield return new WaitForSeconds(startWait);
 
 		while (!stop) {
 
-			randomObject = Random.Range(0, 8);
-			// randomObject = Random.Range(0, 7);
+			randomObject = Random.Range(minRange, maxRange);
 
 			Vector3 spawnPosition = new Vector3(Random.Range(-1, 2) * laneProperties.laneWidth, 
 												1,
 												Random.Range(-1, 2) * laneProperties.laneWidth);
 
 			Instantiate(objects[randomObject], 
-						spawnPosition + transform.TransformPoint(0,0,0), 
+						spawnPosition + transform.TransformPoint(0, 0, 0), 
 						gameObject.transform.rotation);
 
 			yield return new WaitForSeconds(spawnWait);

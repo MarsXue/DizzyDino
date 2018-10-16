@@ -18,7 +18,8 @@ public class TutorialTextManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        ShowText("Press ← and → to move.");
+        // ShowText("Press ← and → to move.");
+        ShowText("Press SPACE to jump.");
 	}
 	
 	// Update is called once per frame

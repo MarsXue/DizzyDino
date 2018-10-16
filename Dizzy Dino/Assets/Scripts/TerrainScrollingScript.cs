@@ -10,9 +10,8 @@ public class TerrainScrollingScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        laneProperties =
-            GameObject.FindWithTag("GameController")
-                      .GetComponent<LaneProperties>();
+        laneProperties = GameObject.FindWithTag("GameController")
+                        .GetComponent<LaneProperties>();
         startingX = gameObject.transform.position.x;
     }
 	
