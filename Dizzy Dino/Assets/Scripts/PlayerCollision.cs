@@ -16,13 +16,16 @@ public class PlayerCollision : MonoBehaviour {
 
 	private LifeManager lifeManager;
 
+    private Coroutine invincibleCoroutine;
+
 	// Use this for initialization
 	void Start () {
 		
 		lifeManager = GameObject.FindWithTag("GameController")
                       .GetComponent<LifeManager>();
 
-	}
+        defaultShader = dinosaur.GetComponent<Renderer>().material.shader;
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -31,7 +34,23 @@ public class PlayerCollision : MonoBehaviour {
 
 	void OnTriggerEnter (Collider collider) {
 
-		if (isProtected || isInvincible) {
+
+
+        // Item collision
+        if (collider.tag == "Item") {
+            Debug.Log("Item: " + collider.name);
+            if (collider.name.StartsWith("SuperStar")) {
+                if (!isInvincible) {
+                    invincibleCoroutine = StartCoroutine(InvincibleMode());
+                } else {
+                    StopCoroutine(invincibleCoroutine);
+                    invincibleCoroutine = StartCoroutine(InvincibleMode());
+                }
+            }
+            return;
+        }
+
+        if (isProtected || isInvincible) {
 			return;
 		}
 
@@ -41,22 +60,6 @@ public class PlayerCollision : MonoBehaviour {
 			lifeManager.loseLive();	
 		}
 
-		// Item collision
-		if (collider.tag == "Item") {
-			Debug.Log("Item: " + collider.name);
-			
-			if (collider.name.StartsWith("SuperStar")) {
-
-				if (!isInvincible) {
-					StartCoroutine("InvincibleMode");
-				} else {
-					StopCoroutine("InvincibleMode");
-					StartCoroutine("InvincibleMode");
-				}
-				
-			}
-		}
-
 	}
 
 	IEnumerator InvincibleMode () {
@@ -64,8 +67,6 @@ public class PlayerCollision : MonoBehaviour {
 		isInvincible = true;
 
 		MeshRenderer renderer = dinosaur.GetComponent<MeshRenderer>();
-		Shader defaultShader = renderer.material.shader;
-
 
 		renderer.material.shader = invincibleShader;
 
