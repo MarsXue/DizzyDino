@@ -18,10 +18,14 @@ public class PlayerCollision : MonoBehaviour {
 
     private Coroutine invincibleCoroutine;
 
+    private AudioSource audioSource;
+    public AudioClip hitSound;
+
 	// Use this for initialization
 	void Start () {
-		
-		lifeManager = GameObject.FindWithTag("GameController")
+        audioSource = gameObject.GetComponent<AudioSource>();
+
+        lifeManager = GameObject.FindWithTag("GameController")
                       .GetComponent<LifeManager>();
 
         defaultShader = dinosaur.GetComponent<Renderer>().material.shader;
@@ -33,8 +37,6 @@ public class PlayerCollision : MonoBehaviour {
 	}
 
 	void OnTriggerEnter (Collider collider) {
-
-
 
         // Item collision
         if (collider.tag == "Item") {
@@ -56,7 +58,9 @@ public class PlayerCollision : MonoBehaviour {
 
 		// Obstacle collision
 		if (collider.tag == "Obstacle") {
-			Debug.Log("Obstacle: " + collider.name);
+            audioSource.clip = hitSound;
+            audioSource.Play();
+            Debug.Log("Obstacle: " + collider.name);
 			lifeManager.loseLive();	
 		}
 

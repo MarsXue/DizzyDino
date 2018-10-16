@@ -14,11 +14,12 @@ public class ScoreManager : MonoBehaviour {
 
     private float time = 0.0f;
 
+    private AudioSource scoreAudioSource;
+
     // Use this for initialization
     void Start () {
-
+        scoreAudioSource = gameObject.GetComponent<AudioSource>();
         highScore.text = "HI " + PlayerPrefs.GetInt("score0").ToString().PadLeft(5, '0');
-
     }
 	
     // Update is called once per frame
@@ -44,10 +45,8 @@ public class ScoreManager : MonoBehaviour {
             }
 
         } else {
-            
             if (s % 100 == 0 && s != 0) {
                 isBlinking = true;
-
                 StartBlinking();
             }
 
@@ -81,6 +80,7 @@ public class ScoreManager : MonoBehaviour {
 	}
 	
 	public void StartBlinking() {
+        scoreAudioSource.Play();
 
 		StopCoroutine("Blink");
 		StartCoroutine("Blink");

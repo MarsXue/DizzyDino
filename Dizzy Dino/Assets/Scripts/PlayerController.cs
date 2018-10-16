@@ -14,12 +14,17 @@ public class PlayerController : MonoBehaviour {
 
     private LaneProperties laneProperties;
 
+    private AudioSource audioSource;
+    public AudioClip ButtonPress;
+
     private float z = 0.0f;
     private Rigidbody r;
     
 
     // Use this for initialization
     void Start () {
+        audioSource = gameObject.GetComponent<AudioSource>();
+
         laneProperties = GameObject.FindWithTag("GameController")
                         .GetComponent<LaneProperties>();
         z = gameObject.transform.localPosition.z;
@@ -32,16 +37,19 @@ public class PlayerController : MonoBehaviour {
       
         Vector3 pos = gameObject.transform.position;
         if (Input.GetKeyDown(KeyCode.LeftArrow) && !stop) {
+            HitButton();
             pos.z = Mathf.Max(z -laneProperties.laneWidth, pos.z -laneProperties.laneWidth);
             r.angularVelocity = Vector3.zero;
         }
         if (Input.GetKeyDown(KeyCode.RightArrow) && !stop) {
+            HitButton();
             pos.z = Mathf.Min(z +laneProperties.laneWidth, pos.z +laneProperties.laneWidth);
             r.angularVelocity = Vector3.zero;
         }
         gameObject.transform.position = pos;
 
         if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow)) && !stop) {
+            HitButton();
             if (gameObject.transform.position.y < jumpThreshold) {
                 r.AddForce(force * Vector3.up);
             }
@@ -53,5 +61,10 @@ public class PlayerController : MonoBehaviour {
         } else {
             particleSystem.Play();
         }
+    }
+
+    private void HitButton() {
+        audioSource.clip = ButtonPress;
+        audioSource.Play();
     }
 }
