@@ -15,6 +15,9 @@ public class Spawner : MonoBehaviour {
 	private int randomObject;
 	private int minRange;
 	private int maxRange;
+	private float posX;
+	private float posZ;
+	private float countTime = 0f;
 
 	// Use this for initialization
 	void Start () {
@@ -25,6 +28,9 @@ public class Spawner : MonoBehaviour {
 		laneProperties = GameObject.FindWithTag("GameController")
                       	.GetComponent<LaneProperties>();
 
+		posX = 0f;
+		posZ = 0f;
+
 		StartCoroutine(obstacleSpawner());
 		
 	}
@@ -32,6 +38,19 @@ public class Spawner : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+		countTime += Time.deltaTime;
+
+		if (countTime >= 15) {
+			minRange = 6;
+			maxRange = 7;	
+		}
+
+		if (countTime >= 30) {
+			minRange = 0;
+			posX = Random.Range(-1, 2) * laneProperties.laneWidth;
+			posZ = Random.Range(-1, 2) * laneProperties.laneWidth;
+		}
+ 
 		spawnWait = Random.Range(spawnLeastWait, spawnMostWait);
 		
 	}
@@ -44,9 +63,9 @@ public class Spawner : MonoBehaviour {
 
 			randomObject = Random.Range(minRange, maxRange);
 
-			Vector3 spawnPosition = new Vector3(Random.Range(-1, 2) * laneProperties.laneWidth, 
-												1,
-												Random.Range(-1, 2) * laneProperties.laneWidth);
+			Vector3 spawnPosition = new Vector3(posX, 1, posZ);
+
+			Debug.Log(spawnPosition);
 
 			Instantiate(objects[randomObject], 
 						spawnPosition + transform.TransformPoint(0, 0, 0), 

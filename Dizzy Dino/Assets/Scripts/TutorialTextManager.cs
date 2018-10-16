@@ -10,6 +10,10 @@ public class TutorialTextManager : MonoBehaviour {
     public float fadeoutSpeed;
 
     private float lastTextTime = 0f;
+
+    private float countTime = 0f;
+    private bool flag_15 = false;
+    private bool flag_30 = false;
     private int state = 0;
     // States:
     //  0: Idle
@@ -24,6 +28,19 @@ public class TutorialTextManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+        countTime += Time.deltaTime;
+
+        if (countTime >= 15 && !flag_15) {
+            flag_15 = !flag_15;
+            ShowText("Press ← and → to move.");
+        }
+
+        if (countTime >= 30 && !flag_30) {
+            flag_30 = !flag_30;
+            ShowText ("There we go ~");
+        }
+
         switch (state) {
             case 1:
                 if (Time.realtimeSinceStartup >= lastTextTime + textLifeTime) {

@@ -11,8 +11,9 @@ public class YAxisPositioner : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		gameObject.transform.position = Position;
-
+		Vector3 pos = gameObject.transform.position;
+		pos.y = Position.y;
+		gameObject.transform.position = pos;
 
         gameObject.transform.eulerAngles = Rotation;
 		
