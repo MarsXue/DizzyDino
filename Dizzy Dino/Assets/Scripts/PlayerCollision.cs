@@ -16,13 +16,14 @@ public class PlayerCollision : MonoBehaviour {
 
 	private LifeManager lifeManager;
 
+    private Coroutine invincibleCoroutine;
+
 	// Use this for initialization
 	void Start () {
 		
 		lifeManager = GameObject.FindWithTag("GameController")
                       .GetComponent<LifeManager>();
-
-	}
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -46,12 +47,11 @@ public class PlayerCollision : MonoBehaviour {
 			Debug.Log("Item: " + collider.name);
 			
 			if (collider.name.StartsWith("SuperStar")) {
-
 				if (!isInvincible) {
-					StartCoroutine("InvincibleMode");
+					invincibleCoroutine = StartCoroutine(InvincibleMode());
 				} else {
-					StopCoroutine("InvincibleMode");
-					StartCoroutine("InvincibleMode");
+					StopCoroutine(invincibleCoroutine);
+                    invincibleCoroutine = StartCoroutine(InvincibleMode());
 				}
 				
 			}
