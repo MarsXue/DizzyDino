@@ -12,6 +12,7 @@ public class LifeManager : MonoBehaviour {
     private const string LIFE_PREFIX = "♥×";
 
     public GameObject endScreen;
+    public GameObject hiScoreScreen;
 
     public GameObject dinosaur;
 
@@ -19,6 +20,7 @@ public class LifeManager : MonoBehaviour {
     private ScoreManager scoreManager;
     private LaneProperties laneProperties;
     private PlayerCollision playerCollision;
+    private TutorialTextManager tutorialTextManager;
 
     private bool isVisible = true;
 
@@ -36,6 +38,9 @@ public class LifeManager : MonoBehaviour {
         
         laneProperties = GameObject.FindWithTag("GameController")
                         .GetComponent<LaneProperties>();
+
+        tutorialTextManager = GameObject.FindWithTag("GameController")
+                                   .GetComponent<TutorialTextManager>();
 
         playerCollision = dinosaur.GetComponent<PlayerCollision>();
 
@@ -91,7 +96,6 @@ public class LifeManager : MonoBehaviour {
     }
 
     void setVisibility(GameObject g, bool v) {
-        
         MeshRenderer mr = g.GetComponent<MeshRenderer>();
 
         if (mr != null) mr.enabled = v;
@@ -104,13 +108,10 @@ public class LifeManager : MonoBehaviour {
     void GameOver() {
         Debug.Log("Game Over");
 
-        endScreen.SetActive(true);
-
-        // Stop generating the assets
+        // Stop all kinds of stuff
         spawner.stop = true;
-
-        // Stop adding the score
         scoreManager.stop = true;
+        tutorialTextManager.stop = true;
         
         // Stop moving the landscape
         laneProperties.speed = 0;
@@ -119,19 +120,16 @@ public class LifeManager : MonoBehaviour {
 
         // Stop moving the dinosuar
         dinosaur.GetComponent<Rigidbody>().isKinematic = false;
-        dinosaur.GetComponentInChildren<ParticleSystem>().enableEmission = false;
+        ParticleSystem.EmissionModule e = dinosaur.GetComponentInChildren<ParticleSystem>().emission;
+        e.enabled = false;
         dinosaur.GetComponentInChildren<PlayerController>().stop = true;
 
-    }
-
-    // Restart the game
-    public void RestartGame() {
-
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
-
-    public void ReturnToMenu() {
-        SceneManager.LoadScene("MainMenu");
+        // Check if new high score is achieved
+        if (ScoreManager.score > RankingManager.GetWorstScore()) {
+            hiScoreScreen.SetActive(true);
+        } else {
+            endScreen.SetActive(true);
+        }
     }
 
 }

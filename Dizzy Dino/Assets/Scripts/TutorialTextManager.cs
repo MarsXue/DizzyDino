@@ -9,6 +9,8 @@ public class TutorialTextManager : MonoBehaviour {
     public float textLifeTime;
     public float fadeoutSpeed;
 
+    public bool stop = false;
+
     private float lastTextTime = 0f;
 
     private float countTime = 0f;
@@ -28,6 +30,8 @@ public class TutorialTextManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+        if (stop) return;
 
         countTime += Time.deltaTime;
 

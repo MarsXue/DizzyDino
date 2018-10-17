@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class RankingManager : MonoBehaviour {
 
-	private List<PlayerData> ScoreList;
+	private static List<PlayerData> ScoreList;
 
 	public Text NameText;
 
@@ -21,18 +21,43 @@ public class RankingManager : MonoBehaviour {
 	void Start () {
 		
 		// Initial the ranking board
-		if (!PlayerPrefs.HasKey("name1")) {
+		if (!PlayerPrefs.HasKey("name0")) {
 			for (int i = 0; i < 5; i++) {
 				PlayerPrefs.SetString("name" + i, names[i]);
 				PlayerPrefs.SetInt("score" + i, scores[i]);
 			}
 		}
 
-		UpdateList("test", 0);
-		
+        RenderList();
 	}
 
-	public void UpdateList (String name, int score) {
+    public static int GetWorstScore() {
+        if (!PlayerPrefs.HasKey("name0")) {
+            return PlayerPrefs.GetInt("score4");
+        }
+        return 0;
+    }
+
+    public void RenderList() {
+        String dName = "";
+        String dScore = "";
+
+        // Display the top 5 in ranking board
+        for (int i = 0; i < 5; i++) {
+            if (i != 4) {
+                dName += ScoreList[i].Name + "\n";
+                dScore += ScoreList[i].Score.ToString() + "\n";
+            } else {
+                dName += ScoreList[i].Name;
+                dScore += ScoreList[i].Score.ToString();
+            }
+        }
+
+        NameText.text = dName;
+        ScoreText.text = dScore;
+    }
+
+	public static void UpdateList (String name, int score) {
 		ScoreList = new List<PlayerData>();
 		ScoreList.Add(new PlayerData(name, score));
 
@@ -54,23 +79,6 @@ public class RankingManager : MonoBehaviour {
 			PlayerPrefs.SetString("name" + i, ScoreList[i].Name);
 			PlayerPrefs.SetInt("score" + i, ScoreList[i].Score);
 		}
-
-		String dName = "";
-		String dScore = "";
-
-		// Display the top 5 in ranking board
-		for (int i = 0; i < 5; i++) {
-			if (i != 4) {
-				dName += ScoreList[i].Name + "\n";
-				dScore += ScoreList[i].Score.ToString() + "\n";
-			} else {
-				dName += ScoreList[i].Name;
-				dScore += ScoreList[i].Score.ToString();
-			}
-		}
-
-		NameText.text = dName;
-		ScoreText.text = dScore;
 
 		// Save the player preference
 		PlayerPrefs.Save();
