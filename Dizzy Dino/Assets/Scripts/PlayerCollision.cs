@@ -50,7 +50,7 @@ public class PlayerCollision : MonoBehaviour {
 
         // Item collision
         if (collider.tag == "Item") {
-            Debug.Log("Item: " + collider.name);
+            // Debug.Log("Item: " + collider.name);
             if (collider.name.StartsWith("SuperStar")) {
                 if (!isInvincible) {
                     invincibleCoroutine = StartCoroutine(InvincibleMode());
