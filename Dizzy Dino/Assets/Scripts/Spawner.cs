@@ -19,6 +19,12 @@ public class Spawner : MonoBehaviour {
 	private float countTime = 0f;
 	private int stage = 0;
 	private bool beginStage = true;
+	private string[] tutorialText = {"Press SPACE to jump.",
+									 "Press ← and → to move.",
+									 "Black diamond decelerates.",
+									 "Star makes you invinsible.",
+									 "Green diamond accelerates.",
+									 "Ink jar blocks your view."};
 	
 
 	// Use this for initialization
@@ -65,7 +71,7 @@ public class Spawner : MonoBehaviour {
 						R = objects.Length;
 						C = Random.Range(0, maxObj);
 						// show tutorial text
-
+						tutorialTextManager.ShowText(tutorialText[stage]);
 						break;
 					case 1:
 					case 2:
@@ -79,7 +85,7 @@ public class Spawner : MonoBehaviour {
 							C = tutorialObjects[stage];
 							beginStage = false;
 							//show tutorial text
-							
+							tutorialTextManager.ShowText(tutorialText[stage]);
 						} else {
 							L = RandomObject(maxObj);
 							R = RandomObject(maxObj);

@@ -24,8 +24,7 @@ public class TutorialTextManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        // ShowText("Press ← and → to move.");
-        ShowText("Press SPACE to jump.");
+
 	}
 	
 	// Update is called once per frame
@@ -35,15 +34,15 @@ public class TutorialTextManager : MonoBehaviour {
 
         countTime += Time.deltaTime;
 
-        if (countTime >= 15 && !flag_15) {
-            flag_15 = !flag_15;
-            ShowText("Press ← and → to move.");
-        }
+        // if (countTime >= 15 && !flag_15) {
+        //     flag_15 = !flag_15;
+        //     ShowText("Press ← and → to move.");
+        // }
 
-        if (countTime >= 25 && !flag_30) {
-            flag_30 = !flag_30;
-            ShowText ("There we go ~");
-        }
+        // if (countTime >= 25 && !flag_30) {
+        //     flag_30 = !flag_30;
+        //     ShowText ("There we go ~");
+        // }
 
         switch (state) {
             case 1:
