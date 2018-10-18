@@ -104,7 +104,7 @@ public class Spawner : MonoBehaviour {
 				!isPassable(L, R, C)
 			);
 
-			Vector3 spawnPosition = new Vector3(0, 1, 0);
+			Vector3 spawnPosition = new Vector3(-30, 1, 0);
 
 			if (C != objects.Length) {
 				Instantiate(objects[C],

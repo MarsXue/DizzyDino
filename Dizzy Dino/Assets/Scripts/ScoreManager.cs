@@ -18,6 +18,7 @@ public class ScoreManager : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        score = 0f;
         scoreAudioSource = gameObject.GetComponent<AudioSource>();
         highScore.text = "HI " + PlayerPrefs.GetInt("score0").ToString().PadLeft(5, '0');
     }

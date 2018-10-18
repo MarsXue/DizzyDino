@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class LaneProperties : MonoBehaviour {
 
 	public static float ACCELERATION = 0.05f;
-	public float maxSpeed = 25.0f;
+	public float maxSpeed = 35.0f;
     public float speed;
     public float effectSpeed;
 	public float laneWidth;
