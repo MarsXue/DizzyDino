@@ -41,7 +41,7 @@ public class NewHiScore : MonoBehaviour {
             // shake the input field.
             shakeStartTime = Time.time;
         } else {
-            RankingManager.UpdateList(name, (int) ScoreManager.score);
+            RankingManager.UpdateList(name, (int) (ScoreManager.score * 10));
             highScoreOverlay.SetActive(false);
             gameOverOverlay.SetActive(true);
         }

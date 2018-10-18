@@ -25,16 +25,12 @@ public class PlayerCollision : MonoBehaviour {
     private Coroutine speedObjectCoroutine;
     private Coroutine screenBlockCoroutine;
 
-    private AudioSource audioSource;
-    public AudioClip hitSound;
-
     public float speedDelta = 5f;
     public float fadeTime = 1f;
     public float lastFadeTime = -1;
 
 	// Use this for initialization
 	void Start () {
-        audioSource = gameObject.GetComponent<AudioSource>();
 
         lifeManager = GameObject.FindWithTag("GameController")
                       .GetComponent<LifeManager>();
@@ -95,8 +91,6 @@ public class PlayerCollision : MonoBehaviour {
 
 		// Obstacle collision
 		if (collider.tag == "Obstacle") {
-            audioSource.clip = hitSound;
-            audioSource.Play();
             Debug.Log("Obstacle: " + collider.name);
 			lifeManager.loseLive();	
 		}

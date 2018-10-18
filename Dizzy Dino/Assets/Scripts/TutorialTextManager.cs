@@ -40,7 +40,7 @@ public class TutorialTextManager : MonoBehaviour {
             ShowText("Press ← and → to move.");
         }
 
-        if (countTime >= 30 && !flag_30) {
+        if (countTime >= 25 && !flag_30) {
             flag_30 = !flag_30;
             ShowText ("There we go ~");
         }

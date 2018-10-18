@@ -68,7 +68,7 @@ public class LifeManager : MonoBehaviour {
         }
         UpdateIndicator();
 
-        StartCoroutine(DoBlinks(3f, 0.2f));
+        StartCoroutine(DoBlinks(1f, 0.2f));
     }
 
     IEnumerator DoBlinks(float duration, float blinkTime) {

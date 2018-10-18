@@ -4,32 +4,34 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour {
 
+	public int[] tutorialObjects = {0, 6, 8, 9, 10, 11};
 	public GameObject[] objects;
 	public float spawnWait;
 	public float spawnMostWait;
 	public float spawnLeastWait;
 	public int startWait;
 	public bool stop = false;
+	public float threshold;
 
 	private LaneProperties laneProperties;
+	private TutorialTextManager tutorialTextManager;
 	private int randomObject;
-	private int minRange;
-	private int maxRange;
-	private float posX;
-	private float posZ;
 	private float countTime = 0f;
+	private int stage = 0;
+	private bool beginStage = true;
+	
+	
 
 	// Use this for initialization
 	void Start () {
 
-		minRange = 0;
-		maxRange = 6;
+		threshold = 0.7f;
 
 		laneProperties = GameObject.FindWithTag("GameController")
                       	.GetComponent<LaneProperties>();
-
-		posX = 0f;
-		posZ = 0f;
+		
+		tutorialTextManager = GameObject.FindWithTag("GameController")
+							  .GetComponent<TutorialTextManager>();
 
 		StartCoroutine(obstacleSpawner());
 		
@@ -40,18 +42,10 @@ public class Spawner : MonoBehaviour {
 
 		countTime += Time.deltaTime;
 
-		if (countTime >= 15) {
-			minRange = 6;
-			maxRange = 7;	
+		if ((int) countTime / 15 > stage && stage < 5) {
+			stage += 1;
+			beginStage = true;
 		}
-
-		if (countTime >= 30) {
-			minRange = 0;
-			posX = Random.Range(-1, 2) * laneProperties.laneWidth;
-			posZ = Random.Range(-1, 2) * laneProperties.laneWidth;
-		}
- 
-		spawnWait = Random.Range(spawnLeastWait, spawnMostWait);
 		
 	}
 
@@ -61,20 +55,125 @@ public class Spawner : MonoBehaviour {
 
 		while (!stop) {
 
-			randomObject = Random.Range(minRange, maxRange);
+			int L, R, C, maxObj = 0;
+			Debug.Log("Stage = " + stage);
+			do {
+				switch (stage) {
 
-			Vector3 spawnPosition = new Vector3(posX, 1, posZ);
+					case 0:
+						maxObj = 6;
+						L = objects.Length;
+						R = objects.Length;
+						C = Random.Range(0, maxObj);
+						// show tutorial text
+						Debug.Log("Stage 0: " + L + ", " + C + ", " + R);
+						break;
+					case 1:
+					case 2:
+					case 3:
+					case 4:
+					case 5:
+						maxObj = tutorialObjects[stage] + 1;
+						if (beginStage) {
+							L = objects.Length;
+							R = objects.Length;
+							C = tutorialObjects[stage];
+							beginStage = false;
+							//show tutorial text
+							
+						} else {
+							L = RandomObject(maxObj);
+							R = RandomObject(maxObj);
+							C = RandomObject(maxObj);
+						}
+						break;
+					default:
+						maxObj = objects.Length;
+						L = RandomObject(maxObj);
+						R = RandomObject(maxObj);
+						C = RandomObject(maxObj);
+						break;
 
-			Debug.Log(spawnPosition);
+				}
+			} while (
+				!isPassable(L, R, C)
+			);
 
-			Instantiate(objects[randomObject], 
-						spawnPosition + transform.TransformPoint(0, 0, 0), 
-						gameObject.transform.rotation);
+			Vector3 spawnPosition = new Vector3(0, 1, 0);
+
+			if (C != objects.Length) {
+				Instantiate(objects[C],
+							spawnPosition + transform.TransformPoint(0, 0, 0),
+							gameObject.transform.rotation);
+			}
+
+			if (L != objects.Length) {
+				spawnPosition.z = -laneProperties.laneWidth;
+				Debug.Log("L: " + spawnPosition);
+
+				Instantiate(objects[L],
+							spawnPosition + transform.TransformPoint(0, 0, 0),
+							gameObject.transform.rotation);
+			}
+
+			if (R != objects.Length) {
+				spawnPosition.z = laneProperties.laneWidth;
+				Debug.Log("R: " + spawnPosition);
+
+				Instantiate(objects[R],
+							spawnPosition + transform.TransformPoint(0, 0, 0),
+							gameObject.transform.rotation);
+			}
+
+	
+			spawnWait = Random.Range(spawnLeastWait, spawnMostWait);
+
+			Debug.Log(L + ", " + C + ", " + R);
 
 			yield return new WaitForSeconds(spawnWait);
 
 		}
 
+	}
+
+	private int RandomObject (int max) {
+
+		int objectId = 12;
+
+		float randomValue = Random.value;
+
+		if (randomValue < threshold) {
+
+			if (max != objects.Length) {
+				return Random.Range(0, max);
+			}
+
+			float i = randomValue / threshold;
+
+			if (i < 0.4) {
+				// obstacle
+				objectId = Random.Range(0, 6);
+			} else if (i < 0.6) {
+				// tree
+				objectId = 6;
+			} else if (i < 0.8) {
+				// item +
+				objectId = Random.Range(7, 10);
+			} else {
+				// item -
+				objectId = Random.Range(10, 12);
+			}
+
+		}
+
+		return objectId;
+	}
+
+	private bool isPassable (int L, int R, int C) {
+		if (L == 6 && R == 6 && C == 6) {
+			return false;
+		}
+		return true;
 	}
 
 }

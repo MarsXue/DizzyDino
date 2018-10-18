@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ItemOnCollide : MonoBehaviour {
 
+	private AudioSource audioSource;
 	private PlayerCollision playerCollision;
 
 	// Use this for initialization
@@ -12,6 +13,7 @@ public class ItemOnCollide : MonoBehaviour {
 		playerCollision = GameObject.FindWithTag("Player")
 						 .GetComponent<PlayerCollision>();
 		
+		audioSource = gameObject.GetComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame
@@ -21,7 +23,9 @@ public class ItemOnCollide : MonoBehaviour {
 
 	void OnTriggerEnter (Collider collider) {
 
-		if (collider.tag == "Item") {
+		audioSource.Play();
+
+		if (gameObject.tag == "Item") {
 
 			Destroy(gameObject);
 
