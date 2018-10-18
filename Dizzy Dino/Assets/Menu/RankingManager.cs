@@ -19,6 +19,7 @@ public class RankingManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		// PlayerPrefs.DeleteAll();
 		
 		// Initial the ranking board
 		if (!PlayerPrefs.HasKey("name0")) {
@@ -26,6 +27,14 @@ public class RankingManager : MonoBehaviour {
 				PlayerPrefs.SetString("name" + i, names[i]);
 				PlayerPrefs.SetInt("score" + i, scores[i]);
 			}
+		}
+
+		ScoreList = new List<PlayerData>();
+
+		for (int i = 0; i < 5; i++) {
+			String name = PlayerPrefs.GetString("name" + i);
+			int score = PlayerPrefs.GetInt("score" + i);
+			ScoreList.Add(new PlayerData(name, score));
 		}
 
         RenderList();
