@@ -41,38 +41,7 @@
 
 			sampler2D _MainTex;
 			float4 _MainTex_ST;
-			
-            inline fixed4 RGBtoHSL(fixed4 rgb) {
-                fixed4 hsl = fixed4(0.0, 0.0, 0.0, rgb.w);
-                
-                fixed vMin = min(min(rgb.x, rgb.y), rgb.z);
-                fixed vMax = max(max(rgb.x, rgb.y), rgb.z);
-                fixed vDelta = vMax - vMin;
-                
-                hsl.z = (vMax + vMin) / 2.0;
-                
-                if (vDelta == 0.0) {
-                    hsl.x = hsl.y = 0.0;
-                }
-                else {
-                    if (hsl.z < 0.5) hsl.y = vDelta / (vMax + vMin);
-                    else hsl.y = vDelta / (2.0 - vMax - vMin);
-                    
-                    float rDelta = (((vMax - rgb.x) / 6.0) + (vDelta / 2.0)) / vDelta;
-                    float gDelta = (((vMax - rgb.y) / 6.0) + (vDelta / 2.0)) / vDelta;
-                    float bDelta = (((vMax - rgb.z) / 6.0) + (vDelta / 2.0)) / vDelta;
-                    
-                    if (rgb.x == vMax) hsl.x = bDelta - gDelta;
-                    else if (rgb.y == vMax) hsl.x = (1.0 / 3.0) + rDelta - bDelta;
-                    else if (rgb.z == vMax) hsl.x = (2.0 / 3.0) + gDelta - rDelta;
-                    
-                    if (hsl.x < 0.0) hsl.x += 1.0;
-                    if (hsl.x > 1.0) hsl.x -= 1.0;
-                }
-                
-                return hsl;
-            }
-
+            
             inline fixed hueToRGB(float v1, float v2, float vH) {
                 if (vH < 0.0) vH+= 1.0;
                 if (vH > 1.0) vH -= 1.0;

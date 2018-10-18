@@ -18,7 +18,7 @@
 		CGPROGRAM
         #pragma target 3.0
         #include "UnityPBSLighting.cginc"
-        #pragma surface surf Standard fullforwardshadows vertex:vert
+        #pragma surface surf Standard fullforwardshadows vertex:vert addshadow
         
         sampler2D _MainTex;
 
