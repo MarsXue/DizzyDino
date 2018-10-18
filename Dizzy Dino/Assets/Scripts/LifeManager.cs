@@ -53,12 +53,18 @@ public class LifeManager : MonoBehaviour {
 	}
 
     void UpdateIndicator() {
-        lifeIndicator.text = LIFE_PREFIX + lives;
+        if (lives == 10) {
+            lifeIndicator.text = LIFE_PREFIX + lives + "(MAX)";
+        } else {
+            lifeIndicator.text = LIFE_PREFIX + lives;
+        }
     }
 
     public void gainLive() {
-        lives += 1;
-        UpdateIndicator();
+        if (lives < 10) {
+            lives += 1;
+            UpdateIndicator();
+        }
     }
 
     public void loseLive() {
