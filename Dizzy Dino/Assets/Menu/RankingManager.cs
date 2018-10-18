@@ -41,7 +41,7 @@ public class RankingManager : MonoBehaviour {
 	}
 
     public static int GetWorstScore() {
-        if (!PlayerPrefs.HasKey("name0")) {
+        if (PlayerPrefs.HasKey("name0")) {
             return PlayerPrefs.GetInt("score4");
         }
         return 0;

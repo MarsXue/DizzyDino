@@ -17,7 +17,7 @@
 		CGPROGRAM
         #pragma target 3.0
         #include "UnityPBSLighting.cginc"
-        #pragma surface surf Lambert noforwardadd vertex:vert
+        #pragma surface surf Lambert noforwardadd vertex:vert addshadow
        
 	
 		#include "UnityCG.cginc"

@@ -6,9 +6,8 @@
         _AltTex("Alternative texture", 2D) = "white" {}
         _Color ("Color", Color) = (1, 1, 1, 1)
         _Speed ("Speed", Range(0, 1)) = 1
-        _Wavelength ("Wavelength", Range(0, 1)) = 1
+        _Wavelength ("Wavelength", Range(0, 10)) = 1
         _Amplitude ("Amplitude", Range(0, 1)) = 1
-        _Foam ("Foam width", Range(0, 3)) = 1
 	}
 	SubShader
 	{
@@ -48,7 +47,7 @@
             
             float4 _Color;
             uniform sampler2D _CameraDepthTexture;
-            float _Wavelength, _Amplitude, _Speed, _Foam;
+            float _Wavelength, _Amplitude, _Speed;
 			
 			v2f vert (appdata v)
 			{
@@ -77,15 +76,6 @@
 				// sample the texture
 				fixed4 col = tex2D(_MainTex, i.uv) * _Color;
                 
-                half depth = 
-                    LinearEyeDepth(
-                        SAMPLE_DEPTH_TEXTURE_PROJ(
-                            _CameraDepthTexture, 
-                            UNITY_PROJ_COORD(i.screenPosition)));
-                 
-                half4 foamColor = 1 - saturate(_Foam * depth - i.screenPosition.w);
-                 
-                col += foamColor * _Color;
 				// apply fog
 				UNITY_APPLY_FOG(i.fogCoord, col);
 				return col;

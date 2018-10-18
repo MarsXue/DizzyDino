@@ -131,7 +131,7 @@ public class LifeManager : MonoBehaviour {
         dinosaur.GetComponentInChildren<PlayerController>().stop = true;
 
         // Check if new high score is achieved
-        if (ScoreManager.score > RankingManager.GetWorstScore()) {
+        if (ScoreManager.score * 10 > RankingManager.GetWorstScore()) {
             hiScoreScreen.SetActive(true);
         } else {
             endScreen.SetActive(true);
