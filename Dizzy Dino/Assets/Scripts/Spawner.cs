@@ -20,7 +20,6 @@ public class Spawner : MonoBehaviour {
 	private int stage = 0;
 	private bool beginStage = true;
 	
-	
 
 	// Use this for initialization
 	void Start () {
@@ -56,7 +55,7 @@ public class Spawner : MonoBehaviour {
 		while (!stop) {
 
 			int L, R, C, maxObj = 0;
-			Debug.Log("Stage = " + stage);
+
 			do {
 				switch (stage) {
 
@@ -66,7 +65,7 @@ public class Spawner : MonoBehaviour {
 						R = objects.Length;
 						C = Random.Range(0, maxObj);
 						// show tutorial text
-						Debug.Log("Stage 0: " + L + ", " + C + ", " + R);
+
 						break;
 					case 1:
 					case 2:
@@ -109,7 +108,6 @@ public class Spawner : MonoBehaviour {
 
 			if (L != objects.Length) {
 				spawnPosition.z = -laneProperties.laneWidth;
-				Debug.Log("L: " + spawnPosition);
 
 				Instantiate(objects[L],
 							spawnPosition + transform.TransformPoint(0, 0, 0),
@@ -118,17 +116,13 @@ public class Spawner : MonoBehaviour {
 
 			if (R != objects.Length) {
 				spawnPosition.z = laneProperties.laneWidth;
-				Debug.Log("R: " + spawnPosition);
 
 				Instantiate(objects[R],
 							spawnPosition + transform.TransformPoint(0, 0, 0),
 							gameObject.transform.rotation);
 			}
 
-	
 			spawnWait = Random.Range(spawnLeastWait, spawnMostWait);
-
-			Debug.Log(L + ", " + C + ", " + R);
 
 			yield return new WaitForSeconds(spawnWait);
 
@@ -150,13 +144,13 @@ public class Spawner : MonoBehaviour {
 
 			float i = randomValue / threshold;
 
-			if (i < 0.4) {
+			if (i < 0.7) {
 				// obstacle
 				objectId = Random.Range(0, 6);
-			} else if (i < 0.6) {
+			} else if (i < 0.9) {
 				// tree
 				objectId = 6;
-			} else if (i < 0.8) {
+			} else if (i < 0.96) {
 				// item +
 				objectId = Random.Range(7, 10);
 			} else {

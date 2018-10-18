@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ItemOnCollide : MonoBehaviour {
 
-	private AudioSource audioSource;
+	public AudioSource audioSource;
 	private PlayerCollision playerCollision;
 
 	// Use this for initialization
@@ -23,21 +23,29 @@ public class ItemOnCollide : MonoBehaviour {
 
 	void OnTriggerEnter (Collider collider) {
 
-		audioSource.Play();
+		if (gameObject.name.StartsWith("SpeedDown")) {
+			Debug.Log("Speed Down collide" + collider.tag);
+		}
 
-		if (gameObject.tag == "Item") {
+		if (collider.tag == "Player") {
+			
+			Debug.Log("Play item sound");
+			audioSource.Play();
 
-			Destroy(gameObject);
+			if (gameObject.tag == "Item") {
 
-		} else {
-
-			if (playerCollision.isInvincible) {
-				
 				Destroy(gameObject);
+
+			} else {
+
+				if (playerCollision.isInvincible) {
+					
+					Destroy(gameObject);
+				}
+
 			}
 
 		}
-		
 
 	}
 

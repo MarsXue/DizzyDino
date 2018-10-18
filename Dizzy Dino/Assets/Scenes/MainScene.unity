@@ -392,7 +392,6 @@ MonoBehaviour:
   invincibleShader: {fileID: 4800000, guid: b3d60f9136f91422c8f5efab5e449b32, type: 3}
   dinosaur: {fileID: 146969706}
   ink: {fileID: 68323284}
-  hitSound: {fileID: 8300000, guid: 35902bb55d76345cd9c80121b3003d70, type: 3}
   speedDelta: 5
   fadeTime: 1
   lastFadeTime: -1
@@ -13493,6 +13492,10 @@ Prefab:
       value: 
       objectReference: {fileID: 2100000, guid: dd41e4c8ec11f4012b35f7da5df7eb50, type: 2}
     - target: {fileID: 100002, guid: 1a05798fe58a34aa3a998e2eb43df4a0, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 1a05798fe58a34aa3a998e2eb43df4a0, type: 3}
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
