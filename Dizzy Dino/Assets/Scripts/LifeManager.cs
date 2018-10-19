@@ -24,6 +24,11 @@ public class LifeManager : MonoBehaviour {
 
     private bool isVisible = true;
 
+
+    private float shakeStartTime = -1f;
+    private float shakeTime = 0.5f;
+    private RectTransform rectTrans;
+
     // Use this for initialization
     void Start () {
 
@@ -44,12 +49,20 @@ public class LifeManager : MonoBehaviour {
 
         playerCollision = dinosaur.GetComponent<PlayerCollision>();
 
+        rectTrans = lifeIndicator.GetComponent<RectTransform>();
 
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+        Vector2 pos = rectTrans.anchoredPosition;
+        if (Time.time < shakeStartTime + shakeTime) {
+            pos.x = Random.Range(-10, 10);
+        } else if (shakeStartTime > 0) {
+            pos.x = 0;
+            shakeStartTime = -1f;
+        }
+        rectTrans.anchoredPosition = pos;
 	}
 
     void UpdateIndicator() {
@@ -64,6 +77,8 @@ public class LifeManager : MonoBehaviour {
         if (lives < 10) {
             lives += 1;
             UpdateIndicator();
+        } else {
+            shakeStartTime = Time.time;
         }
     }
 
@@ -133,6 +148,7 @@ public class LifeManager : MonoBehaviour {
         // Check if new high score is achieved
         if (ScoreManager.score * 10 > RankingManager.GetWorstScore()) {
             hiScoreScreen.SetActive(true);
+            gameObject.GetComponent<NewHiScore>().Focus();
         } else {
             endScreen.SetActive(true);
         }

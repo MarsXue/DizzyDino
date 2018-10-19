@@ -15,14 +15,25 @@ public class NewHiScore : MonoBehaviour {
     private float shakeStartTime = -1f;
     private float shakeTime = 0.5f;
     private RectTransform rectTrans;
+    private InputField ifd;
 
 	// Use this for initialization
 	void Start () {
         scoreManager = GameObject.FindWithTag("GameController")
                        .GetComponent<ScoreManager>();
         rectTrans = inputField.GetComponent<RectTransform>();
+        
+        
+        
     }
 	
+    public void Focus () {
+        ifd = inputField.GetComponent<InputField>();
+        ifd.Select();
+        ifd.ActivateInputField();
+
+    }
+
 	// Update is called once per frame
 	void Update () {
         Vector2 pos = rectTrans.anchoredPosition;
@@ -33,6 +44,10 @@ public class NewHiScore : MonoBehaviour {
             shakeStartTime = -1f;
         }
         rectTrans.anchoredPosition = pos;
+
+        if (Input.GetKeyUp(KeyCode.Return)) {
+            onSubmit();
+        }
     }
 
     public void onSubmit(){
@@ -40,6 +55,7 @@ public class NewHiScore : MonoBehaviour {
         if (name.Length == 0) {
             // shake the input field.
             shakeStartTime = Time.time;
+            Focus();
         } else {
             RankingManager.UpdateList(name, (int) (ScoreManager.score * 10));
             highScoreOverlay.SetActive(false);
