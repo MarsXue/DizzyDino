@@ -8839,7 +8839,7 @@ ParticleSystem:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1407466532}
   serializedVersion: 5
-  lengthInSec: 5
+  lengthInSec: 3.36
   simulationSpeed: 1
   stopAction: 0
   looping: 1
@@ -8964,7 +8964,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 10
+      scalar: 8.702985
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -9455,8 +9455,8 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 5
     enabled: 1
-    type: 18
-    angle: 5.382396
+    type: 4
+    angle: 4.547047
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
@@ -13369,13 +13369,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1407466532}
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 32, y: -42, z: 3}
+  m_LocalRotation: {x: -0.7071055, y: -0.018879803, z: 0.0013423241, w: 0.7068547}
+  m_LocalPosition: {x: 31.99997, y: -41.999996, z: 3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 35176017}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -91.63899, y: 88.578995, z: -90}
 --- !u!1001 &1410161289
 Prefab:
   m_ObjectHideFlags: 0
