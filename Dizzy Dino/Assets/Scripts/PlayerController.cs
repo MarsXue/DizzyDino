@@ -31,32 +31,38 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-      
-        Vector3 pos = gameObject.transform.position;
-        if (Input.GetKeyDown(KeyCode.LeftArrow) && !stop) {
-            HitButton();
-            pos.z = Mathf.Max(z -laneProperties.laneWidth, pos.z -laneProperties.laneWidth);
-            r.angularVelocity = Vector3.zero;
-        }
-        if (Input.GetKeyDown(KeyCode.RightArrow) && !stop) {
-            HitButton();
-            pos.z = Mathf.Min(z +laneProperties.laneWidth, pos.z +laneProperties.laneWidth);
-            r.angularVelocity = Vector3.zero;
-        }
-        gameObject.transform.position = pos;
+    
+        if (gameObject.transform.position.y < jumpThreshold) {
 
-        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow)) && !stop) {
-            HitButton();
-            if (gameObject.transform.position.y < jumpThreshold) {
+            if (Input.GetKeyDown(KeyCode.LeftArrow) && !stop) {
+                HitButton();
+                Vector3 pos = gameObject.transform.position;
+                pos.z = Mathf.Max(z - laneProperties.laneWidth, pos.z - laneProperties.laneWidth);
+                r.angularVelocity = Vector3.zero;
+                gameObject.transform.position = pos;
+            }
+            if (Input.GetKeyDown(KeyCode.RightArrow) && !stop) {
+                HitButton();
+                Vector3 pos = gameObject.transform.position;
+                pos.z = Mathf.Min(z + laneProperties.laneWidth, pos.z + laneProperties.laneWidth);
+                r.angularVelocity = Vector3.zero;
+                gameObject.transform.position = pos;
+            }
+
+            if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow)) && !stop) {
+                HitButton();
                 r.AddForce(force * Vector3.up);
             }
-        }
 
-        if (gameObject.transform.position.y > jumpThreshold) {
-            particleSystem.Stop();
-            r.angularVelocity = Vector3.zero;
+            if (!particleSystem.isPlaying)
+                particleSystem.Play();
+
         } else {
-            particleSystem.Play();
+            if (particleSystem.isPlaying)
+                particleSystem.Stop();
+
+            r.angularVelocity = Vector3.zero;
+
         }
     }
 
