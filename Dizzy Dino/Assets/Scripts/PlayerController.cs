@@ -14,7 +14,6 @@ public class PlayerController : MonoBehaviour {
 
     private LaneProperties laneProperties;
 
-    private AudioSource audioSource;
     public AudioClip ButtonPress;
 
     private float z = 0.0f;
@@ -23,8 +22,6 @@ public class PlayerController : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        audioSource = gameObject.GetComponent<AudioSource>();
-
         laneProperties = GameObject.FindWithTag("GameController")
                         .GetComponent<LaneProperties>();
         z = gameObject.transform.localPosition.z;
@@ -64,7 +61,6 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void HitButton() {
-        audioSource.clip = ButtonPress;
-        audioSource.Play();
+        AudioSource.PlayClipAtPoint(ButtonPress, gameObject.transform.position);
     }
 }

@@ -25,12 +25,16 @@ public class PlayerCollision : MonoBehaviour {
     private Coroutine speedObjectCoroutine;
     private Coroutine screenBlockCoroutine;
 
+    private AudioSource audioSource;
+
     public float speedDelta = 5f;
     public float fadeTime = 1f;
     public float lastFadeTime = -1;
 
 	// Use this for initialization
 	void Start () {
+
+        audioSource = gameObject.GetComponent<AudioSource>();
 
         lifeManager = GameObject.FindWithTag("GameController")
                       .GetComponent<LifeManager>();
@@ -53,8 +57,11 @@ public class PlayerCollision : MonoBehaviour {
             // Debug.Log("Item: " + collider.name);
             if (collider.name.StartsWith("SuperStar")) {
                 if (!isInvincible) {
+                    audioSource.Play();
                     invincibleCoroutine = StartCoroutine(InvincibleMode());
                 } else {
+                    audioSource.Stop();
+                    audioSource.Play();
                     StopCoroutine(invincibleCoroutine);
                     invincibleCoroutine = StartCoroutine(InvincibleMode());
                 }
@@ -109,8 +116,9 @@ public class PlayerCollision : MonoBehaviour {
 
 		isInvincible = false;
 		renderer.material.shader = defaultShader;
+        audioSource.Stop();
 
-	}
+    }
 
     IEnumerator SpeedUp() {
         isSpeedObjectActivated = true;

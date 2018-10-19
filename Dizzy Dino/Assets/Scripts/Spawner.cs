@@ -21,8 +21,8 @@ public class Spawner : MonoBehaviour {
 	private bool beginStage = true;
 	private string[] tutorialText = {"Press SPACE/↑ to jump.",
 									 "Press ← and → to move.",
-									 "Black diamond decelerates.",
-									 "Star makes you invinsible.",
+                                     "Star makes you invinsible.",
+                                     "Black diamond decelerates.",
 									 "Green diamond accelerates.",
 									 "Ink jar blocks your view."};
 	
@@ -159,9 +159,12 @@ public class Spawner : MonoBehaviour {
 			} else if (i < 0.9) {
 				// tree
 				objectId = 6;
-			} else if (i < 0.96) {
-				// item +
-				objectId = Random.Range(7, 10);
+			} else if (i < 0.92) {
+                // Star & Heart
+                objectId = Random.Range(7, 9);
+            } else if (i < 0.95) {
+                // Speed down
+                objectId = 9;
 			} else {
 				// item -
 				objectId = Random.Range(10, 12);
